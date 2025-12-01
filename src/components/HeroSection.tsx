@@ -1,4 +1,4 @@
-import WhatsAppButton from "./WhatsAppButton";
+﻿import WhatsAppButton from "./WhatsAppButton";
 import heroBurger from "@/assets/hero-burger.jpg";
 import { WHATSAPP_PRIMARY } from "@/constants/contact";
 
@@ -10,7 +10,8 @@ const HeroSection = () => {
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${heroBurger})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background" />
+        {/* Softer overlay so the hero image stays visible */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/35 to-background/75" />
       </div>
 
       {/* Content */}
@@ -18,7 +19,7 @@ const HeroSection = () => {
         <div className="max-w-3xl mx-auto">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 border border-primary/30 text-primary mb-6 animate-slide-up">
-            <span className="text-sm font-medium">🔥 Peça direto e economize nas taxas!</span>
+            <span className="text-sm font-medium">💬 Peça direto e economize nas taxas!</span>
           </div>
 
           {/* Main Title */}
@@ -30,7 +31,7 @@ const HeroSection = () => {
 
           {/* Subtitle */}
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl mx-auto animate-slide-up animation-delay-200">
-            Os melhores hambúrgueres artesanais da região. 
+            Os melhores hambúrgueres artesanais da região.
             Ingredientes frescos, sabor incomparável.
           </p>
 
@@ -53,11 +54,11 @@ const HeroSection = () => {
               <span className="text-sm">4.9 no Google</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-2xl">🚀</span>
-              <span className="text-sm">Entrega Rápida</span>
+              <span className="text-2xl">⚡</span>
+              <span className="text-sm">Entrega rápida</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-2xl">💰</span>
+              <span className="text-2xl">💸</span>
               <span className="text-sm">Sem taxas de app</span>
             </div>
           </div>

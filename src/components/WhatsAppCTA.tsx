@@ -1,4 +1,4 @@
-import { MessageCircle, Clock, Percent, ThumbsUp } from "lucide-react";
+﻿import { MessageCircle, Clock, Percent, ThumbsUp } from "lucide-react";
 import WhatsAppButton from "./WhatsAppButton";
 import { WHATSAPP_PRIMARY } from "@/constants/contact";
 
@@ -30,7 +30,7 @@ const WhatsAppCTA = () => {
         <div className="max-w-4xl mx-auto text-center">
           {/* Header */}
           <div className="mb-8">
-            <span className="inline-block text-6xl mb-4 animate-float">📲</span>
+            <span className="inline-block text-6xl mb-4 animate-float">💬</span>
             <h2 className="font-display text-4xl md:text-5xl text-foreground mb-4">
               PEÇA PELO <span className="text-whatsapp">WHATSAPP</span>
             </h2>
@@ -48,7 +48,9 @@ const WhatsAppCTA = () => {
                 className="bg-card/50 backdrop-blur-sm rounded-xl p-6 border border-border"
               >
                 <benefit.icon className="w-10 h-10 text-whatsapp mx-auto mb-3" />
-                <h3 className="font-semibold text-foreground mb-1">{benefit.title}</h3>
+                <h3 className="font-bold text-foreground text-lg mb-1 drop-shadow-sm">
+                  {benefit.title}
+                </h3>
                 <p className="text-sm text-muted-foreground">{benefit.description}</p>
               </div>
             ))}
@@ -63,7 +65,6 @@ const WhatsAppCTA = () => {
               size="giant"
               className="w-full max-w-md mx-auto"
             >
-              <MessageCircle className="w-8 h-8" />
               PEDIR AGORA NO WHATSAPP
             </WhatsAppButton>
             

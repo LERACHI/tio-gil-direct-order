@@ -1,4 +1,4 @@
-import { MessageCircle } from "lucide-react";
+﻿import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface WhatsAppButtonProps {
@@ -8,6 +8,7 @@ interface WhatsAppButtonProps {
   size?: "default" | "lg" | "xl" | "giant";
   className?: string;
   children?: React.ReactNode;
+  hideIcon?: boolean;
 }
 
 const WhatsAppButton = ({
@@ -17,18 +18,14 @@ const WhatsAppButton = ({
   size = "lg",
   className,
   children,
+  hideIcon = false,
 }: WhatsAppButtonProps) => {
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   return (
-    <Button
-      variant={variant}
-      size={size}
-      className={className}
-      asChild
-    >
+    <Button variant={variant} size={size} className={className} asChild>
       <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-        <MessageCircle className="mr-2" />
+        {!hideIcon && <MessageCircle className="mr-2" />}
         {children || "Fazer Pedido"}
       </a>
     </Button>

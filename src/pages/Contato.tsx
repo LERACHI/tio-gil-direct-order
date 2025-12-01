@@ -1,4 +1,4 @@
-import { MapPin, Clock, Phone, Instagram, MessageCircle } from "lucide-react";
+﻿import { MapPin, Clock, Phone, Instagram, MessageCircle } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -23,6 +23,23 @@ const scheduleData = [
   { day: "Domingo", hours: "18:00 - 23:00" },
 ];
 
+const locations = [
+  {
+    title: "Unidade Edmundo de Barros",
+    street: "Rua Edmundo de Barros, 24",
+    city: "Centro - Foz do Iguaçu/PR, Brasil",
+    zip: "CEP: 85851-120",
+    mapsUrl: "https://www.google.com/maps?q=Rua+Edmundo+de+Barros,+24,+Foz+do+Iguaçu,+PR,+85851-120",
+  },
+  {
+    title: "Unidade Santos Dumont",
+    street: "Rua Santos Dumont, 1623",
+    city: "Centro - Foz do Iguaçu/PR, Brasil",
+    zip: "CEP: 85851-040",
+    mapsUrl: "https://maps.app.goo.gl/sMvCpfzc8Urk4ydh9",
+  },
+];
+
 const Contato = () => {
   return (
     <div className="min-h-screen bg-background">
@@ -33,7 +50,7 @@ const Contato = () => {
           {/* Page Header */}
           <div className="text-center mb-12">
             <h1 className="font-display text-4xl md:text-6xl text-foreground mb-4">
-              <span className="text-gradient">CONTATO</span> & HORÁRIOS
+              <span className="text-gradient">CONTATO</span> E HORÁRIOS
             </h1>
             <p className="text-muted-foreground max-w-xl mx-auto">
               Entre em contato conosco ou visite nossa loja. Estamos prontos para atender você!
@@ -96,13 +113,39 @@ const Contato = () => {
                   <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-6 h-6 text-primary" />
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground">Endereço</h3>
-                    <p className="text-muted-foreground text-sm">
-                      Rua Principal, 123<br />
-                      Centro - Cidade/UF<br />
-                      CEP: 00000-000
-                    </p>
+                  <div className="w-full">
+                    <h3 className="font-semibold text-foreground mb-3">Endereço</h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {locations.map((location) => (
+                        <div
+                          key={location.title}
+                          className="p-4 rounded-xl border border-border bg-muted/40 shadow-sm transition-colors hover:border-primary/50 hover:bg-primary/5"
+                        >
+                          <div className="flex items-center gap-2 mb-2">
+                            <span className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                              <MapPin className="w-4 h-4" />
+                            </span>
+                            <p className="font-semibold text-foreground">{location.title}</p>
+                          </div>
+                          <p className="text-muted-foreground text-sm leading-relaxed">
+                            {location.street}
+                            <br />
+                            {location.city}
+                            <br />
+                            {location.zip}
+                          </p>
+                          <a
+                            href={location.mapsUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 mt-3 px-3 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-semibold shadow-sm hover:shadow-md transition"
+                          >
+                            <MapPin className="w-4 h-4" />
+                            Abrir no Google Maps
+                          </a>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
@@ -112,7 +155,7 @@ const Contato = () => {
                     <Instagram className="w-6 h-6 text-secondary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground">Instagram</h3>
+                    <h3 className="font-semibold text-foreground mb-3">Instagram</h3>
                     <a
                       href={INSTAGRAM_URL}
                       target="_blank"

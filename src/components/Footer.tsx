@@ -1,4 +1,4 @@
-import { Instagram, MapPin, Clock, MessageCircle, Phone } from "lucide-react";
+﻿import { Instagram, MapPin, Clock, MessageCircle, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 import {
   INSTAGRAM_HANDLE,
@@ -28,9 +28,12 @@ const Footer = () => {
           <div>
             <h4 className="font-display text-lg text-foreground mb-4">INFORMAÇÕES</h4>
             <ul className="space-y-3">
-              <li className="flex items-center gap-2 text-sm text-muted-foreground">
-                <MapPin className="w-4 h-4 text-primary" />
-                Rua Principal, 123 - Centro
+              <li className="flex items-start gap-2 text-sm text-muted-foreground">
+                <MapPin className="w-4 h-4 text-primary mt-0.5" />
+                <span>
+                  Rua Edmundo de Barros, 24 - Centro<br />
+                  Rua Santos Dumont, 1623 - Centro
+                </span>
               </li>
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Clock className="w-4 h-4 text-primary" />
