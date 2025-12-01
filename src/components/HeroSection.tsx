@@ -1,5 +1,6 @@
 import WhatsAppButton from "./WhatsAppButton";
 import heroBurger from "@/assets/hero-burger.jpg";
+import { WHATSAPP_PRIMARY } from "@/constants/contact";
 
 const HeroSection = () => {
   return (
@@ -36,7 +37,7 @@ const HeroSection = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up animation-delay-300">
             <WhatsAppButton
-              phoneNumber="5500000000000"
+              phoneNumber={WHATSAPP_PRIMARY}
               message="Olá! Gostaria de fazer um pedido no Tio Gil Lanches!"
               variant="whatsappGiant"
               size="giant"

@@ -1,5 +1,12 @@
-import { Instagram, MapPin, Clock, Phone } from "lucide-react";
+import { Instagram, MapPin, Clock, MessageCircle, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
+import {
+  INSTAGRAM_HANDLE,
+  INSTAGRAM_URL,
+  LANDLINE_DISPLAY,
+  WHATSAPP_PRIMARY_DISPLAY,
+  WHATSAPP_SECONDARY_DISPLAY,
+} from "@/constants/contact";
 
 const Footer = () => {
   return (
@@ -10,13 +17,10 @@ const Footer = () => {
           <div>
             <Link to="/" className="flex items-center gap-2 mb-4">
               <span className="text-2xl">🍔</span>
-              <span className="font-display text-2xl text-gradient">
-                TIO GIL LANCHES
-              </span>
+              <span className="font-display text-2xl text-gradient">TIO GIL LANCHES</span>
             </Link>
             <p className="text-muted-foreground text-sm">
-              Os melhores hambúrgueres artesanais da região.
-              Qualidade e sabor em cada mordida.
+              Os melhores hambúrgueres artesanais da região. Qualidade e sabor em cada mordida.
             </p>
           </div>
 
@@ -33,8 +37,12 @@ const Footer = () => {
                 Ter-Dom: 18h às 23h
               </li>
               <li className="flex items-center gap-2 text-sm text-muted-foreground">
+                <MessageCircle className="w-4 h-4 text-primary" />
+                WhatsApp: {WHATSAPP_PRIMARY_DISPLAY} / {WHATSAPP_SECONDARY_DISPLAY}
+              </li>
+              <li className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Phone className="w-4 h-4 text-primary" />
-                (00) 00000-0000
+                Telefone: {LANDLINE_DISPLAY}
               </li>
             </ul>
           </div>
@@ -43,13 +51,13 @@ const Footer = () => {
           <div>
             <h4 className="font-display text-lg text-foreground mb-4">REDES SOCIAIS</h4>
             <a
-              href="https://www.instagram.com/_tiogillanches/"
+              href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 bg-muted rounded-lg text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
             >
               <Instagram className="w-5 h-5" />
-              @_tiogillanches
+              {INSTAGRAM_HANDLE}
             </a>
           </div>
         </div>

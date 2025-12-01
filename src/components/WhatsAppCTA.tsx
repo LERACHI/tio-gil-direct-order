@@ -1,5 +1,6 @@
 import { MessageCircle, Clock, Percent, ThumbsUp } from "lucide-react";
 import WhatsAppButton from "./WhatsAppButton";
+import { WHATSAPP_PRIMARY } from "@/constants/contact";
 
 const benefits = [
   {
@@ -56,7 +57,7 @@ const WhatsAppCTA = () => {
           {/* Giant WhatsApp Button */}
           <div className="space-y-4">
             <WhatsAppButton
-              phoneNumber="5500000000000"
+              phoneNumber={WHATSAPP_PRIMARY}
               message="Olá! Gostaria de fazer um pedido no Tio Gil Lanches!"
               variant="whatsappGiant"
               size="giant"

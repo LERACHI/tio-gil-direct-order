@@ -2,6 +2,16 @@ import { MapPin, Clock, Phone, Instagram, MessageCircle } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import {
+  INSTAGRAM_HANDLE,
+  INSTAGRAM_URL,
+  LANDLINE_DISPLAY,
+  LANDLINE_NUMBER,
+  WHATSAPP_PRIMARY,
+  WHATSAPP_PRIMARY_DISPLAY,
+  WHATSAPP_SECONDARY,
+  WHATSAPP_SECONDARY_DISPLAY,
+} from "@/constants/contact";
 
 const scheduleData = [
   { day: "Segunda-feira", hours: "Fechado" },
@@ -17,7 +27,7 @@ const Contato = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">
           {/* Page Header */}
@@ -34,7 +44,7 @@ const Contato = () => {
             {/* Contact Info */}
             <div className="bg-card rounded-2xl p-8 border border-border">
               <h2 className="font-display text-2xl text-foreground mb-6">FALE CONOSCO</h2>
-              
+
               <div className="space-y-6">
                 {/* WhatsApp */}
                 <div className="flex items-start gap-4">
@@ -43,13 +53,40 @@ const Contato = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground">WhatsApp</h3>
-                    <p className="text-muted-foreground text-sm mb-2">Faça seu pedido diretamente</p>
+                    <p className="text-muted-foreground text-sm mb-3">Faça seu pedido diretamente</p>
+                    <div className="space-y-2 text-sm mb-3">
+                      <a
+                        href={`https://wa.me/${WHATSAPP_PRIMARY}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-foreground hover:text-primary"
+                      >
+                        <MessageCircle className="w-4 h-4 text-whatsapp" />
+                        {WHATSAPP_PRIMARY_DISPLAY}
+                      </a>
+                      <a
+                        href={`https://wa.me/${WHATSAPP_SECONDARY}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-foreground hover:text-primary"
+                      >
+                        <MessageCircle className="w-4 h-4 text-whatsapp" />
+                        {WHATSAPP_SECONDARY_DISPLAY}
+                      </a>
+                      <a
+                        href={`tel:+${LANDLINE_NUMBER}`}
+                        className="flex items-center gap-2 text-foreground hover:text-primary"
+                      >
+                        <Phone className="w-4 h-4 text-primary" />
+                        {LANDLINE_DISPLAY}
+                      </a>
+                    </div>
                     <WhatsAppButton
-                      phoneNumber="5500000000000"
+                      phoneNumber={WHATSAPP_PRIMARY}
                       message="Olá! Gostaria de mais informações."
                       size="default"
                     >
-                      (00) 00000-0000
+                      Pedir pelo WhatsApp
                     </WhatsAppButton>
                   </div>
                 </div>
@@ -77,12 +114,12 @@ const Contato = () => {
                   <div>
                     <h3 className="font-semibold text-foreground">Instagram</h3>
                     <a
-                      href="https://www.instagram.com/_tiogillanches/"
+                      href={INSTAGRAM_URL}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-primary hover:underline text-sm"
                     >
-                      @_tiogillanches
+                      {INSTAGRAM_HANDLE}
                     </a>
                     <p className="text-muted-foreground text-sm mt-1">
                       Siga-nos para promoções exclusivas!
@@ -98,19 +135,17 @@ const Contato = () => {
                 <Clock className="w-6 h-6 text-primary" />
                 <h2 className="font-display text-2xl text-foreground">HORÁRIO DE FUNCIONAMENTO</h2>
               </div>
-              
+
               <div className="space-y-3">
                 {scheduleData.map((item, index) => {
                   const isToday = new Date().getDay() === (index === 0 ? 1 : index === 6 ? 0 : index + 1);
                   const isClosed = item.hours === "Fechado";
-                  
+
                   return (
                     <div
                       key={item.day}
                       className={`flex justify-between items-center py-3 px-4 rounded-lg transition-colors ${
-                        isToday
-                          ? "bg-primary/20 border border-primary/30"
-                          : "bg-muted/50"
+                        isToday ? "bg-primary/20 border border-primary/30" : "bg-muted/50"
                       }`}
                     >
                       <span className={`font-medium ${isToday ? "text-primary" : "text-foreground"}`}>
@@ -132,7 +167,7 @@ const Contato = () => {
               {/* Note */}
               <div className="mt-6 p-4 bg-muted/30 rounded-lg border border-border">
                 <p className="text-sm text-muted-foreground">
-                  <strong className="text-foreground">📌 Observação:</strong> Horários podem variar em feriados. 
+                  <strong className="text-foreground">Observação:</strong> Horários podem variar em feriados.
                   Confirme pelo WhatsApp antes de visitar.
                 </p>
               </div>
@@ -142,15 +177,13 @@ const Contato = () => {
           {/* Map placeholder / CTA */}
           <div className="mt-12 text-center">
             <div className="bg-card rounded-2xl p-8 border border-border max-w-2xl mx-auto">
-              <h3 className="font-display text-2xl text-foreground mb-4">
-                PRONTO PARA PEDIR?
-              </h3>
+              <h3 className="font-display text-2xl text-foreground mb-4">PRONTO PARA PEDIR?</h3>
               <p className="text-muted-foreground mb-6">
-                Clique no botão abaixo e faça seu pedido diretamente pelo WhatsApp. 
+                Clique no botão abaixo e faça seu pedido diretamente pelo WhatsApp.
                 Sem taxas, sem complicação!
               </p>
               <WhatsAppButton
-                phoneNumber="5500000000000"
+                phoneNumber={WHATSAPP_PRIMARY}
                 message="Olá! Gostaria de fazer um pedido no Tio Gil Lanches!"
                 variant="whatsappGiant"
                 size="giant"

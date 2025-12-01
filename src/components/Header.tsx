@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Menu, X, MapPin, Clock } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import WhatsAppButton from "./WhatsAppButton";
+import { WHATSAPP_PRIMARY } from "@/constants/contact";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -39,7 +40,7 @@ const Header = () => {
                 {link.label}
               </Link>
             ))}
-            <WhatsAppButton phoneNumber="5500000000000" size="default" />
+            <WhatsAppButton phoneNumber={WHATSAPP_PRIMARY} size="default" />
           </nav>
 
           {/* Mobile Menu Button */}
@@ -70,7 +71,7 @@ const Header = () => {
                   {link.label}
                 </Link>
               ))}
-              <WhatsAppButton phoneNumber="5500000000000" className="mt-2" />
+              <WhatsAppButton phoneNumber={WHATSAPP_PRIMARY} className="mt-2" />
             </nav>
           </div>
         )}
