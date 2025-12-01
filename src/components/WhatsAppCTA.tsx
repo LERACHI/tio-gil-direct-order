@@ -60,7 +60,7 @@ const WhatsAppCTA = () => {
           <div className="space-y-4">
             <WhatsAppButton
               phoneNumber={WHATSAPP_PRIMARY}
-              message="Olá! Gostaria de fazer um pedido no Tio Gil Lanches!"
+              message="Olá! Gostaria de fazer um pedido no Tio Gil Quiosque!"
               variant="whatsappGiant"
               size="giant"
               className="w-full max-w-md mx-auto"

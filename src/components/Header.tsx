@@ -21,7 +21,7 @@ const Header = () => {
           <Link to="/" className="flex items-center gap-2">
             <span className="text-2xl">🍔</span>
             <span className="font-display text-2xl md:text-3xl text-gradient">
-              TIO GIL LANCHES
+              TIO GIL QUIOSQUE
             </span>
           </Link>
 

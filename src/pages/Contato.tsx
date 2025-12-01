@@ -1,17 +1,8 @@
-﻿import { MapPin, Clock, Phone, Instagram, MessageCircle } from "lucide-react";
+import { MapPin, Clock, Instagram, MessageCircle } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import {
-  INSTAGRAM_HANDLE,
-  INSTAGRAM_URL,
-  LANDLINE_DISPLAY,
-  LANDLINE_NUMBER,
-  WHATSAPP_PRIMARY,
-  WHATSAPP_PRIMARY_DISPLAY,
-  WHATSAPP_SECONDARY,
-  WHATSAPP_SECONDARY_DISPLAY,
-} from "@/constants/contact";
+import { INSTAGRAM_HANDLE, INSTAGRAM_URL, WHATSAPP_PRIMARY, WHATSAPP_PRIMARY_DISPLAY } from "@/constants/contact";
 
 const scheduleData = [
   { day: "Segunda-feira", hours: "Fechado" },
@@ -23,22 +14,13 @@ const scheduleData = [
   { day: "Domingo", hours: "18:00 - 23:00" },
 ];
 
-const locations = [
-  {
-    title: "Unidade Edmundo de Barros",
-    street: "Rua Edmundo de Barros, 24",
-    city: "Centro - Foz do Iguaçu/PR, Brasil",
-    zip: "CEP: 85851-120",
-    mapsUrl: "https://www.google.com/maps?q=Rua+Edmundo+de+Barros,+24,+Foz+do+Iguaçu,+PR,+85851-120",
-  },
-  {
-    title: "Unidade Santos Dumont",
-    street: "Rua Santos Dumont, 1623",
-    city: "Centro - Foz do Iguaçu/PR, Brasil",
-    zip: "CEP: 85851-040",
-    mapsUrl: "https://maps.app.goo.gl/sMvCpfzc8Urk4ydh9",
-  },
-];
+const location = {
+  title: "Tio Gil Quiosque",
+  street: "Avenida República Argentina, esquina com Santos Dumont, 1673",
+  city: "Foz do Iguaçu/PR, Brasil",
+  mapsUrl:
+    "https://www.google.com/maps?q=Avenida+Rep%C3%BAblica+Argentina+esquina+com+Santos+Dumont+1673,+Foz+do+Igua%C3%A7u,+PR,+Brazil",
+};
 
 const Contato = () => {
   return (
@@ -47,7 +29,6 @@ const Contato = () => {
 
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">
-          {/* Page Header */}
           <div className="text-center mb-12">
             <h1 className="font-display text-4xl md:text-6xl text-foreground mb-4">
               <span className="text-gradient">CONTATO</span> E HORÁRIOS
@@ -58,12 +39,10 @@ const Contato = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {/* Contact Info */}
             <div className="bg-card rounded-2xl p-8 border border-border">
               <h2 className="font-display text-2xl text-foreground mb-6">FALE CONOSCO</h2>
 
               <div className="space-y-6">
-                {/* WhatsApp */}
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-xl bg-whatsapp/20 flex items-center justify-center flex-shrink-0">
                     <MessageCircle className="w-6 h-6 text-whatsapp" />
@@ -81,22 +60,6 @@ const Contato = () => {
                         <MessageCircle className="w-4 h-4 text-whatsapp" />
                         {WHATSAPP_PRIMARY_DISPLAY}
                       </a>
-                      <a
-                        href={`https://wa.me/${WHATSAPP_SECONDARY}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-foreground hover:text-primary"
-                      >
-                        <MessageCircle className="w-4 h-4 text-whatsapp" />
-                        {WHATSAPP_SECONDARY_DISPLAY}
-                      </a>
-                      <a
-                        href={`tel:+${LANDLINE_NUMBER}`}
-                        className="flex items-center gap-2 text-foreground hover:text-primary"
-                      >
-                        <Phone className="w-4 h-4 text-primary" />
-                        {LANDLINE_DISPLAY}
-                      </a>
                     </div>
                     <WhatsAppButton
                       phoneNumber={WHATSAPP_PRIMARY}
@@ -108,7 +71,6 @@ const Contato = () => {
                   </div>
                 </div>
 
-                {/* Address */}
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-6 h-6 text-primary" />
@@ -116,40 +78,32 @@ const Contato = () => {
                   <div className="w-full">
                     <h3 className="font-semibold text-foreground mb-3">Endereço</h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {locations.map((location) => (
-                        <div
-                          key={location.title}
-                          className="p-4 rounded-xl border border-border bg-muted/40 shadow-sm transition-colors hover:border-primary/50 hover:bg-primary/5"
-                        >
-                          <div className="flex items-center gap-2 mb-2">
-                            <span className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                              <MapPin className="w-4 h-4" />
-                            </span>
-                            <p className="font-semibold text-foreground">{location.title}</p>
-                          </div>
-                          <p className="text-muted-foreground text-sm leading-relaxed">
-                            {location.street}
-                            <br />
-                            {location.city}
-                            <br />
-                            {location.zip}
-                          </p>
-                          <a
-                            href={location.mapsUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 mt-3 px-3 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-semibold shadow-sm hover:shadow-md transition"
-                          >
+                      <div className="p-4 rounded-xl border border-border bg-muted/40 shadow-sm transition-colors hover:border-primary/50 hover:bg-primary/5">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                             <MapPin className="w-4 h-4" />
-                            Abrir no Google Maps
-                          </a>
+                          </span>
+                          <p className="font-semibold text-foreground">{location.title}</p>
                         </div>
-                      ))}
+                        <p className="text-muted-foreground text-sm leading-relaxed">
+                          {location.street}
+                          <br />
+                          {location.city}
+                        </p>
+                        <a
+                          href={location.mapsUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 mt-3 px-3 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-semibold shadow-sm hover:shadow-md transition"
+                        >
+                          <MapPin className="w-4 h-4" />
+                          Abrir no Google Maps
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Instagram */}
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center flex-shrink-0">
                     <Instagram className="w-6 h-6 text-secondary" />
@@ -164,15 +118,12 @@ const Contato = () => {
                     >
                       {INSTAGRAM_HANDLE}
                     </a>
-                    <p className="text-muted-foreground text-sm mt-1">
-                      Siga-nos para promoções exclusivas!
-                    </p>
+                    <p className="text-muted-foreground text-sm mt-1">Siga-nos para promoções exclusivas!</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Schedule */}
             <div className="bg-card rounded-2xl p-8 border border-border">
               <div className="flex items-center gap-3 mb-6">
                 <Clock className="w-6 h-6 text-primary" />
@@ -199,35 +150,30 @@ const Contato = () => {
                           </span>
                         )}
                       </span>
-                      <span className={isClosed ? "text-destructive" : "text-muted-foreground"}>
-                        {item.hours}
-                      </span>
+                      <span className={isClosed ? "text-destructive" : "text-muted-foreground"}>{item.hours}</span>
                     </div>
                   );
                 })}
               </div>
 
-              {/* Note */}
               <div className="mt-6 p-4 bg-muted/30 rounded-lg border border-border">
                 <p className="text-sm text-muted-foreground">
-                  <strong className="text-foreground">Observação:</strong> Horários podem variar em feriados.
-                  Confirme pelo WhatsApp antes de visitar.
+                  <strong className="text-foreground">Observação:</strong> Horários podem variar em feriados. Confirme
+                  pelo WhatsApp antes de visitar.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Map placeholder / CTA */}
           <div className="mt-12 text-center">
             <div className="bg-card rounded-2xl p-8 border border-border max-w-2xl mx-auto">
               <h3 className="font-display text-2xl text-foreground mb-4">PRONTO PARA PEDIR?</h3>
               <p className="text-muted-foreground mb-6">
-                Clique no botão abaixo e faça seu pedido diretamente pelo WhatsApp.
-                Sem taxas, sem complicação!
+                Clique no botão abaixo e faça seu pedido diretamente pelo WhatsApp. Sem taxas, sem complicação!
               </p>
               <WhatsAppButton
                 phoneNumber={WHATSAPP_PRIMARY}
-                message="Olá! Gostaria de fazer um pedido no Tio Gil Lanches!"
+                message="Olá! Gostaria de fazer um pedido no Tio Gil Quiosque!"
                 variant="whatsappGiant"
                 size="giant"
               >
@@ -244,4 +190,3 @@ const Contato = () => {
 };
 
 export default Contato;
-

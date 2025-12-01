@@ -26,7 +26,7 @@ const HeroSection = () => {
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl text-foreground mb-4 animate-slide-up animation-delay-100">
             <span className="text-gradient">TIO GIL</span>
             <br />
-            LANCHES
+            QUIOSQUE
           </h1>
 
           {/* Subtitle */}
@@ -39,7 +39,7 @@ const HeroSection = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up animation-delay-300">
             <WhatsAppButton
               phoneNumber={WHATSAPP_PRIMARY}
-              message="Olá! Gostaria de fazer um pedido no Tio Gil Lanches!"
+              message="Olá! Gostaria de fazer um pedido no Tio Gil Quiosque!"
               variant="whatsappGiant"
               size="giant"
             >
